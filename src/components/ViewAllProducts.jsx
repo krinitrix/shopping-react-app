@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
+import axios from 'axios'
 
 const ViewAllProducts = () => {
+
+        const [products,setItem]= useState(
+            {
+                "products":
+                [
+
+                ]
+            }
+        )
+
+
+        const fetchData=()=>{
+            
+            axios.get("https://dummyjson.com/products").then(
+                (response)=>{
+                    setItem(response.data)
+                }
+            ).catch()
+        }
+
+        useEffect(()=>{fetchData()},[])
+
   return (
     <div>
         <Navbar/>
@@ -10,173 +33,31 @@ const ViewAllProducts = () => {
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div className="row g-3">
                         {/* card starting */}
-                        <div className="col col-12 col-sm-6 col-md-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+
+{products.products.map(
+    (value,index)=>{
+        return(
+<div className="col col-12 col-sm-6 col-md-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                             
                             <div class="card">
-                                <img src="..." class="card-img-top" alt="..."/>
+                                <img src={value.images} class="card-img-top" alt="..."/>
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
+                                    <h5 class="card-title">{value.title}</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
-</div>
+                    </div>
 
 
                         </div>
+                         )
+                    }
+                    )   }
+                        
                         {/* card end */}
 
 
-                        {/* card starting */}
-                        <div className="col col-12 col-sm-6 col-md-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                            
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-</div>
-
-
-                        </div>
-                        {/* card end */}
-
-
-                        {/* card starting */}
-                        <div className="col col-12 col-sm-6 col-md-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                            
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-</div>
-
-
-                        </div>
-                        {/* card end */}
-
-
-                        {/* card starting */}
-                        <div className="col col-12 col-sm-6 col-md-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                            
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-</div>
-
-
-                        </div>
-                        {/* card end */}
-
-
-                        {/* card starting */}
-                        <div className="col col-12 col-sm-6 col-md-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                            
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-</div>
-
-
-                        </div>
-                        {/* card end */}
-
-
-                        {/* card starting */}
-                        <div className="col col-12 col-sm-6 col-md-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                            
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-</div>
-
-
-                        </div>
-                        {/* card end */}
-
-
-                        {/* card starting */}
-                        <div className="col col-12 col-sm-6 col-md-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                            
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-</div>
-
-
-                        </div>
-                        {/* card end */}
-
-
-                        {/* card starting */}
-                        <div className="col col-12 col-sm-6 col-md-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                            
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-</div>
-
-
-                        </div>
-                        {/* card end */}
-
-
-                        {/* card starting */}
-                        <div className="col col-12 col-sm-6 col-md-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                            
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-</div>
-
-
-                        </div>
-                        {/* card end */}
-
-
-                        {/* card starting */}
-                        <div className="col col-12 col-sm-6 col-md-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                            
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-</div>
-
-
-                        </div>
-                        {/* card end */}
+                        
 
 
                     </div>
